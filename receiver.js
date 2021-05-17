@@ -11,13 +11,19 @@ amqp.connect('amqp://localhost', (connError, connection) => {
             throw channelError;
         }
         // Step 3: Assert Queue
-        const QUEUE = 'codingtest'
+        const QUEUE = 'post'
         channel.assertQueue(QUEUE);
         // Step 4: Receive Messages
         channel.consume(QUEUE, (msg) => {
             console.log(`Message received: ${msg.content.toString()}`)
+
         }, {
             noAck: true
         })
     })
 })
+
+
+
+
+
